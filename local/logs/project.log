@@ -1,0 +1,70 @@
+2017-03-24T02:24:41.483Z - normal: Load ~/.CocosCreator/settings.json
+2017-03-24T02:24:41.487Z - normal: checking language setting...
+2017-03-24T02:24:41.487Z - normal: Language: zh
+2017-03-24T02:24:41.843Z - success: protocol editor-framework registered
+2017-03-24T02:24:41.844Z - success: protocol app registered
+2017-03-24T02:24:41.844Z - success: protocol theme registered
+2017-03-24T02:24:41.844Z - success: protocol profile registered
+2017-03-24T02:24:41.844Z - success: protocol packages registered
+2017-03-24T02:24:41.847Z - success: protocol unpack registerred
+2017-03-24T02:24:41.847Z - success: protocol disable-commonjs registerred
+2017-03-24T02:24:42.959Z - normal: connected!
+2017-03-24T02:24:42.961Z - normal: Check project /Users/liushuqing/game/start_project
+2017-03-24T02:24:42.962Z - normal: Initializing Cocos2d
+2017-03-24T02:24:43.105Z - normal: Initializing Asset Database
+2017-03-24T02:24:43.124Z - success: protocol uuid registerred
+2017-03-24T02:24:43.124Z - success: protocol db registerred
+2017-03-24T02:24:43.124Z - success: protocol thumbnail registerred
+2017-03-24T02:24:43.124Z - normal: Loading editor/builtin packages
+2017-03-24T02:24:43.236Z - success: assets loaded
+2017-03-24T02:24:43.239Z - success: builder loaded
+2017-03-24T02:24:43.244Z - success: hierarchy loaded
+2017-03-24T02:24:43.254Z - success: inspector loaded
+2017-03-24T02:24:43.256Z - success: keystore loaded
+2017-03-24T02:24:43.262Z - success: node-library loaded
+2017-03-24T02:24:43.267Z - success: preferences loaded
+2017-03-24T02:24:43.281Z - success: project-importer loaded
+2017-03-24T02:24:43.285Z - success: project-settings loaded
+2017-03-24T02:24:43.289Z - success: ui-kit loaded
+2017-03-24T02:24:43.293Z - success: ui-grid loaded
+2017-03-24T02:24:43.298Z - success: scene loaded
+2017-03-24T02:24:43.299Z - success: sprite-editor loaded
+2017-03-24T02:24:43.344Z - success: store loaded
+2017-03-24T02:24:43.350Z - success: timeline loaded
+2017-03-24T02:24:43.350Z - normal: Loading builtin packages
+2017-03-24T02:24:43.355Z - success: anysdk loaded
+2017-03-24T02:24:43.358Z - success: asset-db-debugger loaded
+2017-03-24T02:24:43.360Z - success: code-editor loaded
+2017-03-24T02:24:43.361Z - success: color-picker loaded
+2017-03-24T02:24:43.365Z - success: console loaded
+2017-03-24T02:24:43.369Z - success: package-manager loaded
+2017-03-24T02:24:43.374Z - success: tester loaded
+2017-03-24T02:24:43.378Z - success: ui-kit-preview-extra loaded
+2017-03-24T02:24:43.381Z - success: ui-kit-preview loaded
+2017-03-24T02:24:43.386Z - success: ui-tree loaded
+2017-03-24T02:24:43.430Z - normal: Initializing project /Users/liushuqing/game/start_project
+2017-03-24T02:24:43.433Z - normal: Loading packages
+2017-03-24T02:24:43.440Z - normal: package load
+2017-03-24T02:24:43.441Z - success: json-lint loaded
+2017-03-24T02:24:43.441Z - normal: Watching packages
+2017-03-24T02:24:43.460Z - normal: Run Application
+2017-03-24T02:24:43.797Z - success: preview server running at http://localhost:7456
+2017-03-24T02:24:47.533Z - normal: 1.4.0
+2017-03-24T02:26:14.451Z - normal: Compiled project javascript file successfully
+2017-03-24T02:29:49.763Z - normal: Compiled project javascript file successfully
+2017-03-24T02:31:00.457Z - normal: Compiled project javascript file successfully
+2017-03-24T02:32:30.208Z - normal: Compiled project javascript file successfully
+2017-03-24T02:32:37.342Z - normal: Compiled project javascript file successfully
+2017-03-24T02:32:45.467Z - normal: Compiled project javascript file successfully
+2017-03-24T02:33:04.250Z - normal: Compiled project javascript file successfully
+2017-03-24T03:06:21.427Z - normal: Compiled project javascript file successfully
+2017-03-24T03:06:26.204Z - normal: Compiled project javascript file successfully
+2017-03-24T03:14:58.978Z - normal: Compiled project javascript file successfully
+2017-03-24T03:15:41.399Z - normal: Compiled project javascript file successfully
+2017-03-24T03:16:04.476Z - normal: Compiled project javascript file successfully
+2017-03-24T03:17:38.165Z - normal: Compiled project javascript file successfully
+2017-03-24T03:18:58.111Z - normal: Compiled project javascript file successfully
+2017-03-24T03:20:27.761Z - normal: Compiled project javascript file successfully
+2017-03-24T03:37:17.434Z - normal: Compiled project javascript file successfully
+2017-03-24T03:38:36.974Z - normal: Compiled project javascript file successfully
+2017-03-24T03:40:20.578Z - normal: Compiled project javascript file successfully
