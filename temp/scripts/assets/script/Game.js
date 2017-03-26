@@ -49,6 +49,7 @@ cc.Class({
         // 初始化计分
         this.score = 0;
         self.doAct = false;
+        this.setTouchController();
     },
 
     spawnNewStar: function spawnNewStar() {
@@ -82,28 +83,7 @@ cc.Class({
         // 播放得分音效
         cc.audioEngine.playEffect(this.scoreAudio, false);
     },
-    setTouchController: function setTouchController() {
-        this.node.on('touchstart', function (event) {
-            var distance = this.player.x - event.getLocationX;
-            console.log('touchstart');
-            if (distance >= 0) {
-                self.accLeft = true;
-                self.accRight = false;
-            } else {
-                self.accLeft = false;
-                self.accRight = true;
-            }
-        }, this);
-        this.node.on('touchend', function (event) {
-            var distance = this.player.x - event.getLocationX;
-            console.log('touchend');
-            if (distance >= 0) {
-                self.accLeft = false;
-            } else {
-                self.accRight = false;
-            }
-        }, this);
-    },
+    setTouchController: function setTouchController() {},
 
     touchBorder: function touchBorder() {
         //碰到边缘的时候

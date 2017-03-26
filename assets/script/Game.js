@@ -45,6 +45,7 @@ cc.Class({
         // 初始化计分
         this.score = 0;
         self.doAct=false;
+        this.setTouchController();
     },
 
     spawnNewStar: function() {
@@ -79,26 +80,7 @@ cc.Class({
         cc.audioEngine.playEffect(this.scoreAudio, false);
     },
     setTouchController:function(){
-        this.node.on('touchstart', function (event) {
-            var distance=this.player.x-event.getLocationX;
-            console.log('touchstart');
-            if(distance>=0){
-                    self.accLeft = true;
-                    self.accRight = false;
-                }else{
-                    self.accLeft = false;
-                    self.accRight = true;
-            }
-        }, this);
-        this.node.on('touchend', function (event) {
-            var distance=this.player.x-event.getLocationX;
-            console.log('touchend');
-            if(distance>=0){
-                    self.accLeft = false;
-                }else{
-                    self.accRight = false;
-            }
-        }, this);
+        
     }
     ,
     touchBorder:function(){

@@ -362,6 +362,9 @@
     "accel": 250,
     "jumpAudio": {
       "__uuid__": "dc194f1a-c8a5-46ca-aaf9-f03b70974af5"
+    },
+    "game": {
+      "__id__": 2
     }
   },
   {

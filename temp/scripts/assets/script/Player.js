@@ -3,7 +3,7 @@ cc._RFpush(module, 'ed8acE7QJhOcZVkMTY4nsBn', 'Player');
 // script/Player.js
 
 cc.Class({
-    "extends": cc.Component,
+    'extends': cc.Component,
 
     // Player.js
     properties: {
@@ -17,8 +17,12 @@ cc.Class({
         accel: 0,
         // 跳跃音效资源
         jumpAudio: {
-            "default": null,
+            'default': null,
             url: cc.AudioClip
+        },
+        game: {
+            'default': null,
+            type: cc.Node
         }
     },
 
@@ -66,6 +70,26 @@ cc.Class({
                 }
             }
         }, self.node);
+
+        this.node.on('touchstart', function (event) {
+            var distance = event.getLocationX() - this.game.width / 2;
+            console.log('touchstart distance' + distance + "player.x" + this.player.x);
+            if (distance >= 0) {
+                this.accLeft = true;
+                this.accRight = false;
+            } else {
+                this.accLeft = false;
+                this.accRight = true;
+            }
+        }, this);
+        this.node.on('touchend', function (event) {
+            var distance = event.getLocationX() - this.game.width / 2;
+            if (distance >= 0) {
+                this.accLeft = false;
+            } else {
+                this.accRight = false;
+            }
+        }, this);
     },
 
     // use this for initialization
