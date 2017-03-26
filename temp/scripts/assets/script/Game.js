@@ -48,6 +48,7 @@ cc.Class({
         // ...
         // 初始化计分
         this.score = 0;
+        self.doAct = false;
     },
 
     spawnNewStar: function spawnNewStar() {
@@ -81,6 +82,42 @@ cc.Class({
         // 播放得分音效
         cc.audioEngine.playEffect(this.scoreAudio, false);
     },
+    setTouchController: function setTouchController() {
+        this.node.on('touchstart', function (event) {
+            var distance = this.player.x - event.getLocationX;
+            console.log('touchstart');
+            if (distance >= 0) {
+                self.accLeft = true;
+                self.accRight = false;
+            } else {
+                self.accLeft = false;
+                self.accRight = true;
+            }
+        }, this);
+        this.node.on('touchend', function (event) {
+            var distance = this.player.x - event.getLocationX;
+            console.log('touchend');
+            if (distance >= 0) {
+                self.accLeft = false;
+            } else {
+                self.accRight = false;
+            }
+        }, this);
+    },
+
+    touchBorder: function touchBorder() {
+        //碰到边缘的时候
+        console.log("反转x");
+        var targetX = this.player.x;
+        if (targetX >= 0) {
+            targetX = this.node.width / 2 - 100;
+        } else {
+            targetX = 100 - this.node.width / 2;
+        }
+        console.log("move to:" + targetX);
+        var action = cc.moveTo(2, cc.p(targetX, this.player.y));
+        this.player.runAction(action);
+    },
 
     // called every frame, uncomment this function to activate update callback
     update: function update(dt) {
@@ -91,6 +128,13 @@ cc.Class({
             return;
         }
         this.timer += dt;
+        var width = this.node.width;
+        var x = this.player.x;
+        if (Math.abs(x * 2) - width >= 0) {
+            self.doAct = true;
+            console.log("x=" + x + ";width=" + width + "result=" + (Math.abs(x * 2) - width));
+            this.touchBorder();
+        }
     },
     gameOver: function gameOver() {
         this.player.stopAllActions(); //停止 player 节点的跳跃动作

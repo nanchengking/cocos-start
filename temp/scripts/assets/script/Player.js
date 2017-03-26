@@ -36,7 +36,6 @@ cc.Class({
         // 调用声音引擎播放声音
         cc.audioEngine.playEffect(this.jumpAudio, false);
     },
-
     setInputControl: function setInputControl() {
         var self = this;
         // 添加键盘事件监听
@@ -100,6 +99,8 @@ cc.Class({
 
         // 根据当前速度更新主角的位置
         this.node.x += this.xSpeed * dt;
+
+        //判断当前是否过界
     }
 
 });
