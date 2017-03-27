@@ -3,7 +3,7 @@ cc._RFpush(module, 'ed8acE7QJhOcZVkMTY4nsBn', 'Player');
 // script/Player.js
 
 cc.Class({
-    'extends': cc.Component,
+    "extends": cc.Component,
 
     // Player.js
     properties: {
@@ -17,11 +17,11 @@ cc.Class({
         accel: 0,
         // 跳跃音效资源
         jumpAudio: {
-            'default': null,
+            "default": null,
             url: cc.AudioClip
         },
         game: {
-            'default': null,
+            "default": null,
             type: cc.Node
         }
     },
@@ -40,6 +40,26 @@ cc.Class({
         // 调用声音引擎播放声音
         cc.audioEngine.playEffect(this.jumpAudio, false);
     },
+    moveRight: function moveRight(stop) {
+        console.log("move moveRight");
+        //向右移动
+        if (stop) {
+            this.accRight = false;
+        } else {
+            this.accLeft = false;
+            this.accRight = true;
+        }
+    },
+    moveLeft: function moveLeft(stop) {
+        console.log("move moveLeft");
+        //向左移动
+        if (stop) {
+            this.accLeft = false;
+        } else {
+            this.accLeft = true;
+            this.accRight = false;
+        }
+    },
     setInputControl: function setInputControl() {
         var self = this;
         // 添加键盘事件监听
@@ -49,12 +69,10 @@ cc.Class({
             onKeyPressed: function onKeyPressed(keyCode, event) {
                 switch (keyCode) {
                     case cc.KEY.a:
-                        self.accLeft = true;
-                        self.accRight = false;
+                        self.moveLeft(false);
                         break;
                     case cc.KEY.d:
-                        self.accLeft = false;
-                        self.accRight = true;
+                        self.moveRight(false);
                         break;
                 }
             },
@@ -62,36 +80,42 @@ cc.Class({
             onKeyReleased: function onKeyReleased(keyCode, event) {
                 switch (keyCode) {
                     case cc.KEY.a:
-                        self.accLeft = false;
+                        self.moveLeft(true);
                         break;
                     case cc.KEY.d:
-                        self.accRight = false;
+                        self.moveRight(true);
                         break;
                 }
             }
         }, self.node);
-
-        this.node.on('touchstart', function (event) {
-            var distance = event.getLocationX() - this.game.width / 2;
-            console.log('touchstart distance' + distance + "player.x" + this.player.x);
-            if (distance >= 0) {
-                this.accLeft = true;
-                this.accRight = false;
-            } else {
-                this.accLeft = false;
-                this.accRight = true;
+        cc.eventManager.addListener({
+            //单点触碰事件
+            event: cc.EventListener.TOUCH_ONE_BY_ONE,
+            swallowTouches: true,
+            onTouchBegan: function onTouchBegan(touches, event) {
+                console.log('touch start');
+                var distance = self.node.x + this.game.width / 2 - event.getLocationX();
+                console.log('touchstart player.x:' + this.node.x + " local x:" + event.getLocationX());
+                if (distance >= 0) {
+                    self.moveLeft(false);
+                } else {
+                    self.moveRight(false);
+                }
+                //必须返回true，否则不会执行下面的方法
+                return true;
+            },
+            onTouchEnded: function onTouchEnded(touches, event) {
+                console.log('touch end');
+                var distance = self.node.x + this.game.width / 2 - event.getLocationX();
+                console.log('end player.x:' + this.node.x + " local x:" + event.getLocationX());
+                if (distance >= 0) {
+                    self.moveLeft(true);
+                } else {
+                    self.moveRight(true);
+                }
             }
-        }, this);
-        this.node.on('touchend', function (event) {
-            var distance = event.getLocationX() - this.game.width / 2;
-            if (distance >= 0) {
-                this.accLeft = false;
-            } else {
-                this.accRight = false;
-            }
-        }, this);
+        }, self.node);
     },
-
     // use this for initialization
     onLoad: function onLoad() {
         // 初始化跳跃动作
@@ -103,7 +127,6 @@ cc.Class({
         this.accRight = false;
         // 主角当前水平方向速度
         this.xSpeed = 0;
-
         // 初始化键盘输入监听
         this.setInputControl();
     },

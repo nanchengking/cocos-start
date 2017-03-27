@@ -2,7 +2,7 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-         // 星星和主角之间的距离小于这个数值时，就会完成收集
+        // 星星和主角之间的距离小于这个数值时，就会完成收集
         pickRadius: 100
     },
 
@@ -14,7 +14,7 @@ cc.Class({
         return dist;
     },
 
-     onPicked: function() {
+    onPicked: function () {
         cc.log("pick one star");
         // 当星星被收集时，调用 Game 脚本中的接口，生成一个新的星星
         this.game.spawnNewStar();
@@ -32,7 +32,7 @@ cc.Class({
             this.onPicked();
             return;
         }
-        var opacityRatio = 1 - this.game.timer/this.game.starDuration;
+        var opacityRatio = 1 - this.game.timer / this.game.starDuration;
         var minOpacity = 50;
         this.node.opacity = minOpacity + Math.floor(opacityRatio * (255 - minOpacity));
     },

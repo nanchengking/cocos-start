@@ -48,7 +48,7 @@ cc.Class({
         // ...
         // 初始化计分
         this.score = 0;
-        self.doAct = false;
+        this.doAct = false;
         this.setTouchController();
     },
 
@@ -83,8 +83,28 @@ cc.Class({
         // 播放得分音效
         cc.audioEngine.playEffect(this.scoreAudio, false);
     },
-    setTouchController: function setTouchController() {},
-
+    setTouchController: function setTouchController() {
+        // this.node.on('touchstart', function (event) {
+        //     var distance=this.player.x+this.node.width/2-event.getLocationX();
+        //     console.log(this.player);
+        //     console.log(this.player.getComponent('Player'));
+        //     console.log('touchstart player.x:'+this.player.x+" local x:"+event.getLocationX());
+        //     if(distance>=0){
+        //       this.player.getComponent('Player').moveLeft(false);
+        //     }else{
+        //         this.player.getComponent('Player').moveRight(false);
+        //     }
+        // }, this);
+        // this.node.on('touchend', function (event) {
+        //     var distance=this.player.x+this.node.width/2-event.getLocationX();
+        //     console.log('touchEnd player.x:'+this.player.x+" local x:"+event.getLocationX());
+        //     if(distance>=0){
+        //         this.player.getComponent('Player').moveLeft(true);
+        //     }else{
+        //         this.player.getComponent('Player').moveRight(true);
+        //     }
+        // }, this);  
+    },
     touchBorder: function touchBorder() {
         //碰到边缘的时候
         console.log("反转x");
@@ -111,7 +131,7 @@ cc.Class({
         var width = this.node.width;
         var x = this.player.x;
         if (Math.abs(x * 2) - width >= 0) {
-            self.doAct = true;
+            this.doAct = true;
             console.log("x=" + x + ";width=" + width + "result=" + (Math.abs(x * 2) - width));
             this.touchBorder();
         }

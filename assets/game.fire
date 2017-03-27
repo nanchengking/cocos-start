@@ -358,8 +358,8 @@
     "_enabled": true,
     "jumpHeight": 200,
     "jumpDuration": 0.3,
-    "maxMoveSpeed": 400,
-    "accel": 250,
+    "maxMoveSpeed": 300,
+    "accel": 150,
     "jumpAudio": {
       "__uuid__": "dc194f1a-c8a5-46ca-aaf9-f03b70974af5"
     },
