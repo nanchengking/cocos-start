@@ -94,8 +94,9 @@ cc.Class({
             swallowTouches: true,
             onTouchBegan: function onTouchBegan(touches, event) {
                 console.log('touch start');
-                var distance = self.node.x + this.game.width / 2 - event.getLocationX();
-                console.log('touchstart player.x:' + this.node.x + " local x:" + event.getLocationX());
+                var distance = self.node.getPosition().x + self.game.width / 2 - touches.getLocationX();
+                console.log('touchstart player.getPosition().x:' + self.node.getPosition().x + " local x:" + touches.getLocationX());
+                console.log(self.node.getPosition());
                 if (distance >= 0) {
                     self.moveLeft(false);
                 } else {
@@ -106,8 +107,8 @@ cc.Class({
             },
             onTouchEnded: function onTouchEnded(touches, event) {
                 console.log('touch end');
-                var distance = self.node.x + this.game.width / 2 - event.getLocationX();
-                console.log('end player.x:' + this.node.x + " local x:" + event.getLocationX());
+                var distance = self.node.getPosition().x + self.game.width / 2 - touches.getLocationX();
+                console.log('end player.x:' + self.node.getPosition().x + " local x:" + touches.getLocationX());
                 if (distance >= 0) {
                     self.moveLeft(true);
                 } else {
